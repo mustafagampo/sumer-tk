@@ -257,7 +257,7 @@ a {
     color: #475569;
 }
 
-/* 💎 إعدادات قسم أعمالنا والتصميم الزجاجي الفاخر (تمت صيانته بالكامل) 💎 */
+/* 💎 إعدادات قسم أعمالنا والتصميم الزجاجي الفاخر 💎 */
 .works {
     background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
 }
@@ -277,7 +277,6 @@ a {
     overflow: hidden;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    /* تحويل البطاقة إلى نظام flex لضمان تساوي الارتفاعات تلقائياً */
     display: flex;
     flex-direction: column;
 }
@@ -288,10 +287,10 @@ a {
     box-shadow: 0 12px 40px 0 rgba(37, 99, 235, 0.4);
 }
 
-/* التعديل الجوهري: إلغاء الخلفيات السوداء والارتفاع الإجباري */
+/* 🌟 توحيد أبعاد الصناديق هندسياً بنسبة ثابتة 🌟 */
 .card-img-box {
     width: 100%;
-    height: auto; 
+    aspect-ratio: 1.4; /* يضمن تساوى الارتفاع تماماً لكل البطاقات بناءً على أبعاد صورة المختار */
     overflow: hidden;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: transparent; 
@@ -299,7 +298,8 @@ a {
 
 .card-img-box img {
     width: 100%;
-    height: auto; /* الصورة تأخذ حجمها الحقيقي لتظهر كاملة وبدون أي حواف ميتة */
+    height: 100%;
+    object-fit: cover; /* يملأ الصندوق بالكامل وبدون أي أشرطة جانبية ميتة */
     display: block;
     transition: transform 0.5s ease;
 }
@@ -310,7 +310,7 @@ a {
 
 .card-info {
     padding: 22px;
-    flex-grow: 1; /* هذه الخاصية تجعل صندوق النصوص يتمدد تلقائياً ليوحد حجم البطاقات بالكامل */
+    flex-grow: 1; /* يضمن تمدد صندوق النصوص بالتساوي لتتوحد أطوال البطاقات بالكامل */
 }
 
 .card-info h3 {

@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سومر تك | لتصميم وتطوير المواقع والأنظمة</title>
     <link rel="stylesheet" href="style.css">
-    <!-- خط Cairo من جوجل لجعل الخطوط احترافية -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- القائمة العلوية بالشعار الجديد -->
     <header class="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo-box">
-                <!-- تأكد أن اسم ملف الشعار في جيت هاب مطابق تماماً لما هو مكتوب هنا -->
                 <img src="logo.png" alt="شعار سومر تك" class="site-logo">
             </a>
             <nav class="nav-links">
@@ -28,16 +25,22 @@
         </div>
     </header>
 
-    <!-- القسم الرئيسي (Hero Section) - تأثير الحركة مضاف هنا -->
     <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1200');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        
         <div class="container hero-content reveal">
             <h1>نحوّل أفكارك الذكية إلى <br><span>واقع رقمي ملموس</span></h1>
-            <p>نقدم حلولاً متكاملة في تصميم وتطوير المواقع الإلكترونية، وبناء الأنظمة المخصصة لتناسب احتياجات عملك بدقة واحترافية.</p>
+            <p>نقدم حلولاً متكاملة في تصميم وتطوير المواقع الإلكترونية، وبناء الأنظمة المخصصة لتناسب احتياجات عملك بدقة وااحترافية.</p>
             <a href="#services" class="btn">اكتشف خدماتنا</a>
         </div>
     </section>
 
-    <!-- قسم الخدمات -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title reveal">خدماتنا وحلولنا الرقمية</h2>
@@ -71,7 +74,6 @@
         </div>
     </section>
 
-    <!-- قسم من نحن -->
     <section id="about" class="about">
         <div class="container about-content reveal">
             <h2 class="section-title">من نحن؟</h2>
@@ -79,36 +81,44 @@
         </div>
     </section>
 
-    <!-- قسم الاتصال -->
     <section id="contact" class="contact">
         <div class="container reveal">
             <h2 class="section-title">دعنا ننطلق بمشروعك القادم</h2>
             <p>جاهز لتحويل فكرتك إلى حقيقة؟ تواصل معنا الآن عبر منصاتنا الرسمية:</p>
             <div class="contact-buttons">
                 <a href="https://www.facebook.com/sumer0iq" target="_blank" class="btn fb-btn">صفحتنا على فيسبوك</a>
+                <a href="https://wa.me/9647817207894" target="_blank" class="btn wa-btn">تواصل عبر واتساب</a>
             </div>
         </div>
     </section>
 
-    <!-- Tذييل الموقع -->
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 | <a href="https://www.facebook.com/sumer0iq" target="_blank">سومر تك</a></p>
     </footer>
 
-    <!-- سكربت برمجى خفيف للمراقبة وتحريك العناصر عند التمرير -->
     <script>
+        // أولاً: سكربت حركة ظهور العناصر عند السكرول
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, {
-            threshold: 0.15 // يبدأ التحريك عندما يظهر 15% من العنصر على الشاشة
-        });
+        }, { threshold: 0.15 });
 
-        // مراقبة جميع العناصر التي تحتوي على كلاس reveal
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // ثانياً: سكربت تشغيل السلايد شو التلقائي (كل 4 ثوانٍ)
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(nextSlide, 4000);
     </script>
 
 </body>

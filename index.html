@@ -16,6 +16,7 @@
     <header class="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo-box">
+                <!-- تأكد أن اسم ملف الشعار في جيت هاب مطابق تماماً لما هو مكتوب هنا -->
                 <img src="logo.jpg" alt="شعار سومر تك" class="site-logo">
             </a>
             <nav class="nav-links">
@@ -27,9 +28,9 @@
         </div>
     </header>
 
-    <!-- القسم الرئيسي (Hero Section) -->
+    <!-- القسم الرئيسي (Hero Section) - تأثير الحركة مضاف هنا -->
     <section id="home" class="hero">
-        <div class="container hero-content">
+        <div class="container hero-content reveal">
             <h1>نحوّل أفكارك الذكية إلى <br><span>واقع رقمي ملموس</span></h1>
             <p>نقدم حلولاً متكاملة في تصميم وتطوير المواقع الإلكترونية، وبناء الأنظمة المخصصة لتناسب احتياجات عملك بدقة واحترافية.</p>
             <a href="#services" class="btn">اكتشف خدماتنا</a>
@@ -39,28 +40,28 @@
     <!-- قسم الخدمات -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">خدماتنا وحلولنا الرقمية</h2>
+            <h2 class="section-title reveal">خدماتنا وحلولنا الرقمية</h2>
             <div class="services-grid">
                 
-                <div class="card">
+                <div class="card reveal">
                     <div class="icon">💻</div>
                     <h3>تطوير المواقع الإلكترونية</h3>
                     <p>بناء مواقع تعريفية، مدونات، ومواقع شركات سريعة ومتجاوبة مع كافة الشاشات بأحدث التقنيات.</p>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="icon">⚙️</div>
                     <h3>بناء الأنظمة المخصصة</h3>
                     <p>هل لديك فكرة نظام خاص؟ نحول فكرتك إلى لوحة تحكم ونظام برمي متكامل لإدارة أعمالك.</p>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="icon">📱</div>
                     <h3>تحويل الأفكار لتطبيقات</h3>
                     <p>نأخذ فكرتك من مرحلة التخطيط إلى التنفيذ الفعلي لتصبح منصة أو تطبيق ويب يخدم عملائك.</p>
                 </div>
 
-                <div class="card">
+                <div class="card reveal">
                     <div class="icon">🚀</div>
                     <h3>استشارات وحلول برمجية</h3>
                     <p>نساعدك في تحسين أداء موقعك الحالي، وتوفير حلول الاستضافة والدعم الفني المستمر.</p>
@@ -72,7 +73,7 @@
 
     <!-- قسم من نحن -->
     <section id="about" class="about">
-        <div class="container about-content">
+        <div class="container about-content reveal">
             <h2 class="section-title">من نحن؟</h2>
             <p>نحن في <strong>سومر تك</strong> نؤمن أن التواجد الرقمي هو أساس نجاح أي مشروع في العصر الحالي. لَسنا مجرد مبرمجين، بل شركاء نجاح نساعدك على صياغة وتطوير مشروعك من مجرد فكرة في مخيلتك إلى منتج رقمي رائد ومنافس في السوق.</p>
         </div>
@@ -80,7 +81,7 @@
 
     <!-- قسم الاتصال -->
     <section id="contact" class="contact">
-        <div class="container">
+        <div class="container reveal">
             <h2 class="section-title">دعنا ننطلق بمشروعك القادم</h2>
             <p>جاهز لتحويل فكرتك إلى حقيقة؟ تواصل معنا الآن عبر منصاتنا الرسمية:</p>
             <div class="contact-buttons">
@@ -89,10 +90,26 @@
         </div>
     </section>
 
-    <!-- التذييل -->
+    <!-- Tذييل الموقع -->
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 | <a href="https://www.facebook.com/sumer0iq" target="_blank">سومر تك</a></p>
     </footer>
+
+    <!-- سكربت برمجى خفيف للمراقبة وتحريك العناصر عند التمرير -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.15 // يبدأ التحريك عندما يظهر 15% من العنصر على الشاشة
+        });
+
+        // مراقبة جميع العناصر التي تحتوي على كلاس reveal
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 
 </body>
 </html>

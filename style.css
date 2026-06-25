@@ -257,7 +257,7 @@ a {
     color: #475569;
 }
 
-/* 💎 إعدادات قسم أعمالنا والتصميم الزجاجي الفاخر 💎 */
+/* 💎 إعدادات قسم أعمالنا والتصميم الزجاجي الفاخر (تمت صيانته بالكامل) 💎 */
 .works {
     background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
 }
@@ -277,6 +277,9 @@ a {
     overflow: hidden;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    /* تحويل البطاقة إلى نظام flex لضمان تساوي الارتفاعات تلقائياً */
+    display: flex;
+    flex-direction: column;
 }
 
 .glass-card:hover {
@@ -285,31 +288,29 @@ a {
     box-shadow: 0 12px 40px 0 rgba(37, 99, 235, 0.4);
 }
 
-/* 🌟 تعديل صندوق الصورة المطور لإظهار الصورة كاملة 🌟 */
+/* التعديل الجوهري: إلغاء الخلفيات السوداء والارتفاع الإجباري */
 .card-img-box {
     width: 100%;
-    height: 200px;
+    height: auto; 
     overflow: hidden;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #0d1627; /* خلفية داكنة مخصصة لدمج حواف الصورة السوداء بسلاسة */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: transparent; 
 }
 
 .card-img-box img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* تم التغيير من cover إلى contain لإلغاء أي قص نهائياً */
+    height: auto; /* الصورة تأخذ حجمها الحقيقي لتظهر كاملة وبدون أي حواف ميتة */
+    display: block;
     transition: transform 0.5s ease;
 }
 
 .glass-card:hover .card-img-box img {
-    transform: scale(1.05); /* زووم آمن يتناسب مع الأبعاد الجديدة */
+    transform: scale(1.04); 
 }
 
 .card-info {
     padding: 22px;
+    flex-grow: 1; /* هذه الخاصية تجعل صندوق النصوص يتمدد تلقائياً ليوحد حجم البطاقات بالكامل */
 }
 
 .card-info h3 {

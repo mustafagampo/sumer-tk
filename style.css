@@ -14,7 +14,7 @@ body {
     background-color: #f8fafc;
     color: #1e293b;
     line-height: 1.6;
-    overflow-x: hidden; /* لمنع أي اهتزاز جانبي أثناء التحريك */
+    overflow-x: hidden;
 }
 
 .container {
@@ -25,7 +25,7 @@ body {
 }
 
 span {
-    color: #2563eb; /* اللون الأزرق الاحترافي (Tech Blue) */
+    color: #3b82f6; /* لون أزرق تقني احترافي عالي التناسق */
 }
 
 a {
@@ -33,13 +33,13 @@ a {
     color: inherit;
 }
 
-/* القائمة العلوية باللون الأبيض المحدث */
+/* القائمة العلوية البيضاء المحترفة */
 .navbar {
-    background-color: #ffffff; /* هيدر باللون الأبيض */
+    background-color: #ffffff; 
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* ظل خفيف ليبرز الهيدر الأبيض */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     z-index: 1000;
 }
 
@@ -61,27 +61,68 @@ a {
     display: block;
 }
 
-/* ألوان القوائم باللون الأسود */
 .nav-links a {
     margin-right: 25px;
     font-weight: 600;
-    color: #000000; /* نصوص القائمة باللون الأسود */
+    color: #000000;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #2563eb; /* تحول لون الروابط للأزرق عند التمرير */
+    color: #3b82f6;
 }
 
-/* القسم الرئيسي (Hero) */
+/* 🎞️ إعدادات وهيكل السلايد شو للقسم الرئيسي */
 .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); /* تدرج احترافي من الكحلي الغامق للأزرق */
-    color: #fff;
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
     padding-top: 100px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* حركة تلاشي ناعمة جداً بين الصور */
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* طبقة الحماية الزرقاء المظلمة لضمان وضوح النص الأبيض والأزرق بنسبة 100% */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 58, 138, 0.88) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3; /* يرفع المحتوى فوق السلايد شو */
 }
 
 .hero-content h1 {
@@ -92,40 +133,61 @@ a {
 
 .hero-content p {
     font-size: 18px;
-    color: #94a3b8;
+    color: #cbd5e1;
     max-width: 700px;
     margin: 0 auto 30px auto;
 }
 
-/* الأزرار الاحترافية */
+/* الأزرار الاحترافية وتنسيق الأزرار المتجاورة */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* لجعل الأزرار تحت بعضها في الشاشات الصغيرة جداً تلقائياً */
+}
+
 .btn {
     display: inline-block;
-    background-color: #2563eb; /* أزرق برمجيات رسمي */
-    color: #ffffff;
+    background-color: #2563eb;
+    color: #fff;
     padding: 12px 30px;
     border-radius: 8px;
     font-weight: 600;
     transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
 .btn:hover {
     background-color: #1d4ed8;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+/* ألوان أزرار السوشيال ميديا المخصصة */
+.fb-btn {
+    background-color: #1877f2;
+    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.3);
+}
+.fb-btn:hover {
+    background-color: #145dbf;
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.5);
+}
+
+.wa-btn {
+    background-color: #25D366; /* الأخضر الرسمي للواتساب */
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+.wa-btn:hover {
+    background-color: #20ba56;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
 /* قسم الخدمات */
-.services {
-    background-color: #f8fafc;
-}
-
 .section-title {
     text-align: center;
     font-size: 32px;
     margin-bottom: 40px;
     position: relative;
-    color: #0f172a;
 }
 
 .section-title::after {
@@ -133,7 +195,7 @@ a {
     display: block;
     width: 60px;
     height: 4px;
-    background-color: #2563eb; /* خط التمييز الأزرق */
+    background-color: #3b82f6;
     margin: 10px auto 0 auto;
     border-radius: 2px;
 }
@@ -148,7 +210,7 @@ a {
     background: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     text-align: center;
     transition: transform 0.3s, border-color 0.3s;
     border: 1px solid #e2e8f0;
@@ -156,7 +218,7 @@ a {
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: #2563eb; /* إطار أزرق تفاعلي عند التمرير */
+    border-color: #3b82f6;
 }
 
 .card .icon {
@@ -167,7 +229,6 @@ a {
 .card h3 {
     margin-bottom: 12px;
     font-size: 20px;
-    color: #0f172a;
 }
 
 .card p {
@@ -177,7 +238,7 @@ a {
 
 /* قسم من نحن */
 .about {
-    background-color: #eff6ff; /* خلفية زرقاء خفيفة ومريحة جداً للعين */
+    background-color: #f0f7ff;
 }
 
 .about-content {
@@ -193,7 +254,6 @@ a {
 /* قسم الاتصال */
 .contact {
     text-align: center;
-    background-color: #fff;
 }
 
 .contact p {
@@ -201,43 +261,31 @@ a {
     color: #475569;
 }
 
-.fb-btn {
-    background-color: #1877f2;
-    color: #fff;
-}
-
-.fb-btn:hover {
-    background-color: #145dbf;
-}
-
 /* التذييل */
 footer {
     background-color: #0f172a;
     color: #94a3b8;
     text-align: center;
-    padding: 25px 0;
+    padding: 20px 0;
     font-size: 14px;
 }
 
 footer a {
-    color: #2563eb;
-    font-weight: 600;
+    color: #3b82f6;
 }
 
-/* 🌟 إعدادات وتأثيرات الحركة والظهور (Scroll Reveal) 🌟 */
+/* 🌟 أنيميشن الحركة (Scroll Reveal) 🌟 */
 .reveal {
     opacity: 0;
-    transform: translateY(50px); /* تبدأ العناصر من الأسفل بمسافة 50 بكسل */
-    transition: opacity 0.8s ease, transform 0.8s ease; /* سرعة الحركة ونعومتها */
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* الكلاس الذي يتم إضافته تلقائياً بواسطة الجافاسكريبت عند النزول */
 .reveal.active {
     opacity: 1;
-    transform: translateY(0); /* تعود لمكانها الطبيعي وتظهر بالكامل */
+    transform: translateY(0);
 }
 
-/* إضافة تأخير بسيط ومميز لبطاقات الخدمات لتظهر واحدة تلو الأخرى بسلاسة (تم إصلاحها) */
 .services-grid .card:nth-child(1) { transition-delay: 0.1s; }
 .services-grid .card:nth-child(2) { transition-delay: 0.2s; }
 .services-grid .card:nth-child(3) { transition-delay: 0.3s; }

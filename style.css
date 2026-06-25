@@ -33,13 +33,13 @@ a {
     color: inherit;
 }
 
-/* القائمة العلوية المتناغمة مع الشعار الأسود */
+/* القائمة العلوية باللون الأبيض المحدث */
 .navbar {
-    background-color: #2563eb; 
+    background-color: #ffffff; /* هيدر باللون الأبيض */
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* ظل خفيف ليبرز الهيدر الأبيض */
     z-index: 1000;
 }
 
@@ -61,10 +61,11 @@ a {
     display: block;
 }
 
+/* ألوان القوائم باللون الأسود */
 .nav-links a {
     margin-right: 25px;
     font-weight: 600;
-    color: #ffffff;
+    color: #000000; /* نصوص القائمة باللون الأسود */
     transition: color 0.3s;
 }
 
@@ -236,7 +237,23 @@ footer a {
     transform: translateY(0); /* تعود لمكانها الطبيعي وتظهر بالكامل */
 }
 
-/* إضافة تأخير بسيط ومميز لبطاقات الخدمات لتظهر واحدة تلو الأخرى */
+/* إضافة تأخير بسيط ومميز لبطاقات الخدمات لتظهر واحدة تلو الأخرى بسلاسة (تم إصلاحها) */
 .services-grid .card:nth-child(1) { transition-delay: 0.1s; }
-...services-grid .card:nth-child(2) { transition-delay: 0.2s; }
-.services-grid .card:nth-child(3) { transition-delay:Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+.services-grid .card:nth-child(2) { transition-delay: 0.2s; }
+.services-grid .card:nth-child(3) { transition-delay: 0.3s; }
+.services-grid .card:nth-child(4) { transition-delay: 0.4s; }
+
+/* التوافق مع الهواتف */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+    .hero-content h1 {
+        font-size: 30px;
+    }
+}

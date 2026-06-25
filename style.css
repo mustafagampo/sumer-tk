@@ -55,7 +55,6 @@ a {
     align-items: center;
 }
 
-/* 🌟 تم تكبير حجم اللوجو هنا من 70px إلى 100px ليكون أكبر وأوضح 🌟 */
 .site-logo {
     max-height: 100px; 
     width: auto;
@@ -80,7 +79,7 @@ a {
     display: flex;
     align-items: center;
     text-align: center;
-    padding-top: 120px; /* تم زيادة الهامش العلوي قليلاً ليتناسب مع الحجم الجديد للوجو */
+    padding-top: 120px; 
     color: #fff;
     overflow: hidden;
 }
@@ -326,7 +325,7 @@ a {
     line-height: 1.6;
 }
 
-/* التذييل */
+/* التذييل وتأثير النبض الجديد */
 footer {
     background-color: #0b0f19;
     color: #94a3b8;
@@ -337,6 +336,21 @@ footer {
 
 footer a {
     color: #2563eb;
+}
+
+/* 🌟 أنيميشن نبض القلب الصغير المحترف 🌟 */
+.beating-heart {
+    display: inline-block;
+    margin: 0 4px;
+    font-size: 13px; /* حجم صغير وناعم */
+    animation: heartPulse 1.2s infinite ease-in-out; /* نبض مستمر خفيف */
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.25); } /* تمدد خفيف يحاكي النبض الحقيقي */
+    60% { transform: scale(0.95); }
+    100% { transform: scale(1); }
 }
 
 /* أنيميشن الحركة (Scroll Reveal) */
